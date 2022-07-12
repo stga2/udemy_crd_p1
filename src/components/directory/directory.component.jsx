@@ -5,7 +5,7 @@ import "./directory.styles.scss";
 class Directory extends Component {
   render() {
     return (
-      <div className="categories-container">
+      <div className="directory-container">
         {this.props.categories.map((category) => (
           <CategoryItem key={category.id} category={category} />
         ))}
