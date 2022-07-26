@@ -9,7 +9,7 @@ class Navigation extends Component {
     return (
       <Fragment>
         <div className="navigation">
-          <Link class="logo-container" to="/">
+          <Link className="logo-container" to="/">
             <img className="logo" src="/crown.png" />
           </Link>
 
