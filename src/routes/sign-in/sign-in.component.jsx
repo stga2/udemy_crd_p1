@@ -1,9 +1,13 @@
 import { Component } from "react";
-import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import {
+  signInWithGooglePopup,
+  createUserDocumentFromAuth
+} from "../../utils/firebase/firebase.utils";
 
 class SignIn extends Component {
   async logGoogleUser() {
     const response = await signInWithGooglePopup();
+    createUserDocumentFromAuth(response.user);
     console.log(response);
   }
 
