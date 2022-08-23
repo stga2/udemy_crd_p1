@@ -3,6 +3,7 @@ import {
   createUserDocumentFromAuth,
   createAuthUserWithEmailAndPassword
 } from "../../utils/firebase/firebase.utils";
+import FormInput from "../form-input/form-input.component";
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -71,45 +72,41 @@ class SignUpForm extends Component {
     return (
       <div>
         <form>
-          <label>Name</label>
-          <input
+          <FormInput
+            label="Name"
             required
             name="displayName"
             value={displayName}
             type="text"
             onChange={this.handleChange}
           />
-          <br />
 
-          <label>Email</label>
-          <input
+          <FormInput
+            label="Email"
             required
             name="email"
             value={email}
             type="email"
             onChange={this.handleChange}
           />
-          <br />
 
-          <label>Password</label>
-          <input
+          <FormInput
+            label="Password"
             required
             name="password"
             value={password}
             type="password"
             onChange={this.handleChange}
           />
-          <br />
 
-          <label>Repeat password</label>
-          <input
+          <FormInput
+            label="Repeat password"
             required
             name="confirmPassword"
             value={confirmPassword}
             type="password"
             onChange={this.handleChange}
           />
-          <br />
 
           <button onClick={this.handleSubmit}>Submit</button>
         </form>
