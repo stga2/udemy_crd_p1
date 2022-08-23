@@ -4,6 +4,7 @@ import {
   createAuthUserWithEmailAndPassword
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -70,7 +71,9 @@ class SignUpForm extends Component {
     console.log(this.state.signUpFormFields);
 
     return (
-      <div>
+      <div className="sign-up-container">
+        <h2>I do not have an account</h2>
+        <span>Sign up with your email and password</span>
         <form>
           <FormInput
             label="Name"
@@ -108,7 +111,9 @@ class SignUpForm extends Component {
             onChange={this.handleChange}
           />
 
-          <button onClick={this.handleSubmit}>Submit</button>
+          <Button buttonType="google" type="submit">
+            Sign up
+          </Button>
         </form>
       </div>
     );
