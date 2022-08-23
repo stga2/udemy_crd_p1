@@ -1,4 +1,8 @@
 import { Component } from "react";
+import {
+  createUserDocumentFromAuth,
+  createAuthUserWithEmailAndPassword
+} from "../../utils/firebase/firebase.utils";
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -8,10 +12,42 @@ class SignUpForm extends Component {
         displayName: "",
         email: "",
         password: "",
-        repeatPassword: ""
+        confirmPassword: ""
       }
     };
   }
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const {
+      displayName,
+      email,
+      password,
+      confirmPassword
+    } = this.state.signUpFormFields;
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    try {
+      const userCredential = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+      const { user } = userCredential;
+      const userDocRef = await createUserDocumentFromAuth(user, {
+        displayName
+      });
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        alert("User already exists");
+      }
+      console.log("user creation encountered error", error);
+    }
+  };
 
   handleChange = (event) => {
     // debugger;
@@ -40,6 +76,7 @@ class SignUpForm extends Component {
             required
             name="displayName"
             value={displayName}
+            type="text"
             onChange={this.handleChange}
           />
           <br />
@@ -49,6 +86,7 @@ class SignUpForm extends Component {
             required
             name="email"
             value={email}
+            type="email"
             onChange={this.handleChange}
           />
           <br />
@@ -58,6 +96,7 @@ class SignUpForm extends Component {
             required
             name="password"
             value={password}
+            type="password"
             onChange={this.handleChange}
           />
           <br />
@@ -67,11 +106,12 @@ class SignUpForm extends Component {
             required
             name="confirmPassword"
             value={confirmPassword}
+            type="password"
             onChange={this.handleChange}
           />
           <br />
 
-          <button>Submit</button>
+          <button onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     );
