@@ -1,6 +1,6 @@
-## Compose sample application
+## Udemy course project: Crown clothing ( ͡° ͜ʖ ͡°)
 
-### Use with Docker Development Environments
+### Use with Docker Development Environments ( ͡° ͜ʖ ͡°)
 
 You can open this sample in the Dev Environments feature of Docker Desktop version 4.12 or later.
 
@@ -56,16 +56,6 @@ Make sure port 3000 on the host is not already being in use.
 
 ```
 $ docker compose up -d
-Creating network "react-express-mongodb_default" with the default driver
-Building frontend
-Step 1/9 : FROM node:13.13.0-stretch-slim
- ---> aa6432763c11
-...
-Successfully tagged react-express-mongodb_app:latest
-WARNING: Image for service app was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
-Creating frontend        ... done
-Creating mongo           ... done
-Creating app             ... done
 ```
 
 ## Expected result
@@ -73,10 +63,6 @@ Creating app             ... done
 Listing containers must show containers running and the port mapping as below:
 ```
 $ docker ps
-CONTAINER ID        IMAGE                               COMMAND                  CREATED             STATUS                  PORTS                      NAMES
-06e606d69a0e        react-express-mongodb_server        "docker-entrypoint.s…"   23 minutes ago      Up 23 minutes           0.0.0.0:3000->3000/tcp     server
-ff56585e1db4        react-express-mongodb_frontend      "docker-entrypoint.s…"   23 minutes ago      Up 23 minutes           0.0.0.0:3000->3000/tcp     frontend
-a1f321f06490        mongo:4.2.0                         "docker-entrypoint.s…"   23 minutes ago      Up 23 minutes           0.0.0.0:27017->27017/tcp   mongo
 ```
 
 After the application starts, navigate to `http://localhost:3000` in your web browser.
@@ -86,12 +72,6 @@ After the application starts, navigate to `http://localhost:3000` in your web br
 Stop and remove the containers
 ```
 $ docker compose down
-Stopping server   ... done
-Stopping frontend ... done
-Stopping mongo    ... done
-Removing server   ... done
-Removing frontend ... done
-Removing mongo    ... done
 ```
 
 ##### Explanation of `docker-compose`
