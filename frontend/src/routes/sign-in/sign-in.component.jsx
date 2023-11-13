@@ -14,7 +14,7 @@ class SignIn extends Component {
   async logGoogleUser() {
     const response = await signInWithGooglePopup();
     const userDocRef = await createUserDocumentFromAuth(response.user);
-    console.log(response);
+    console.log('logGoogleUser', { userDocRef });
   }
 
   async getUserFromRedirect() {
@@ -23,6 +23,7 @@ class SignIn extends Component {
       return;
     }
     const userDocRef = await createUserDocumentFromAuth(response.user);
+    console.log(userDocRef)
   }
 
   componentDidMount() {

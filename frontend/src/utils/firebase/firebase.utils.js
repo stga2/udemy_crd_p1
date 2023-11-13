@@ -12,12 +12,12 @@ import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyDY1e_XvwcCQgsXtt6vWpmHW5P57Xo7dt0",
   authDomain: "crown-clothing-7c054.firebaseapp.com",
+  // authDomain: "localhost:3000",
   projectId: "crown-clothing-7c054",
   storageBucket: "crown-clothing-7c054.appspot.com",
   messagingSenderId: "135124012699",
   appId: "1:135124012699:web:31bc8d64d4f1e1aaa0403e"
 };
-
 // Initialize Firebase
 
 const firebaseApp = initializeApp(firebaseConfig);
